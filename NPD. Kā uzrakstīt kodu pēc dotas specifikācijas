@@ -1,0 +1,88 @@
+def veikala_kase():
+
+print("Sveicināti veikala kases uzskaites sistēmā!")
+
+print("Lai pabeigtu, ievadiet '0' vai atstājiet tukšu lauku.\n")
+
+
+kopsumma = 0
+
+preces_kopsavilkums = []
+
+
+while True:
+
+# Ievada preces nosaukumu
+
+preces_nosaukums = input("Ievadi preces nosaukumu (vai '0', lai pabeigtu): ")
+
+if preces_nosaukums == "" or preces_nosaukums == "0":
+
+break
+
+
+try:
+
+# Ievada cenu
+
+cena = float(input("Ievadi preces cenu: "))
+
+if cena < 0:
+
+print("Kļūda: Cenas vērtība nevar būt negatīva!")
+
+continue
+
+
+# Ievada daudzumu
+
+daudzums = int(input("Ievadi preces daudzumu: "))
+
+if daudzums < 0:
+
+print("Kļūda: Daudzuma vērtība nevar būt negatīva!")
+
+continue
+
+
+# Aprēķina kopējo summu par preci
+
+preces_summa = cena * daudzums
+
+kopsumma += preces_summa
+
+
+
+# Saglabā preces informāciju
+
+preces_kopsavilkums.append((preces_nosaukums, cena, daudzums, preces_summa))
+
+
+
+print(f"Preces kopējā summa: {preces_summa:.2f} €\n")
+
+
+except ValueError:
+
+print("Kļūda: Lūdzu ievadiet derīgas skaitliskas vērtības!")
+
+
+# Izvade pēc visu preču ievades
+
+print("\n--- Pirkumu kopsavilkums ---")
+
+for prece in preces_kopsavilkums:
+
+print(f"{prece[0]}: Cena {prece[1]:.2f} €, Daudzums {prece[2]}, Summa {prece[3]:.2f} €")
+
+
+print(f"\nGalīgā kopsumma: {kopsumma:.2f} €")
+
+print("Paldies par pirkumu!")
+
+
+# Programmas izsaukums
+
+if __name__ == "__main__":
+
+veikala_kase()
